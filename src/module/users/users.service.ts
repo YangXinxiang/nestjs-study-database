@@ -5,10 +5,13 @@ import { User } from './user.entry';
 
 @Injectable()
 export class UsersService {
-  constructor(
-    @InjectRepository(User)
-    private usersRepository: Repository<User>
-  ) {}
+  // 不写在构造函数的参数中，写在成员属性中，也是可以的。
+  // constructor(
+  //   @InjectRepository(User)
+  //   private usersRepository: Repository<User>
+  // ) {}
+  @InjectRepository(User)
+  private usersRepository: Repository<User>
 
   findAll(): Promise<User[]> {
     return this.usersRepository.find();
