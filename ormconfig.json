@@ -5,6 +5,6 @@
     "username": "root",
     "password": "q11111111",
     "database": "nestjs-study",
-    "entities": ["src/module/users/*.entity{.ts,.js}"],
+    "entities": ["dist/**/*.entity{.ts,.js}"],
     "synchronize": true
   }

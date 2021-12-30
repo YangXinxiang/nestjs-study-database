@@ -23,12 +23,13 @@ const defaultConfig = {
   imports: [
     
     TypeOrmModule.forRoot(
-    {
-      ...defaultConfig,
-      type: "mysql",
-      entities: [User,Photo],
-      name:"default"
-    }),
+    // {
+    //   ...defaultConfig,
+    //   type: "mysql",
+    //   entities: [User,Photo],
+    //   name:"default"
+    // }
+    ),
   
   UsersModule,
   PhotoModule,
