@@ -1,3 +1,3 @@
-export {User} from "./user.entry"
-export {Photo} from "./photo.entry"
-export {BridgeVersion} from "./BridgeVersion.entry"
+export {User} from "./user.entity"
+export {Photo} from "./photo.entity"
+export {BridgeVersion} from "./BridgeVersion.entity"
