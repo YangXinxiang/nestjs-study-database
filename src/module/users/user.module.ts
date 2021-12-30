@@ -1,11 +1,26 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user.entry';
+import { User } from '../../entities/user.entry';
 import {UsersService} from "./users.service"
 import {UsersController} from "./users.controller"
 
+const defaultConfig = {
+  type: "mysql",
+  host: "localhost",
+  port: 3306,
+  username: "root",
+  password: "q11111111",
+  database: "nestjs-study",
+  entities: [User],
+  synchronize: true
+}
+
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [
+    TypeOrmModule.forFeature([User], "default"),
+    
+    
+  ],
   providers : [UsersService],
   controllers : [UsersController],
   exports: [TypeOrmModule],

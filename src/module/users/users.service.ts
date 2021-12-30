@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { User } from './user.entry';
+import { InjectRepository,InjectConnection,InjectEntityManager, } from '@nestjs/typeorm';
+import { Repository, Connection,EntityManager ,ConnectionOptions, } from 'typeorm';
+import { User } from '../../entities/user.entry';
 
 @Injectable()
 export class UsersService {
@@ -12,6 +12,14 @@ export class UsersService {
   // ) {}
   @InjectRepository(User)
   private usersRepository: Repository<User>
+
+  // constructor(
+  //   @InjectConnection('myDB')
+  //   private readonly connection: Connection,
+  //   @InjectEntityManager('myDB')
+  //   private readonly entityManager: EntityManager,
+  // ) {}
+
 
   findAll(): Promise<User[]> {
     return this.usersRepository.find();
