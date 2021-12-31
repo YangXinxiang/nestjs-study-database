@@ -10,6 +10,7 @@ import {PhotoHttpModule} from "./module/photo-http/photo-http.module"
 import {BridgeVersionModule} from "./module/bridgeVersion/bv.module"
 import {DBConfigModule} from "./module/config/db.config.module"
 import {DBConfigService} from "./module/config/db.config.service"
+import {ConfigModule} from "@nestjs/config";
 const defaultConfig = {
   type: "mysql",
   host: "localhost",
@@ -23,6 +24,11 @@ const defaultConfig = {
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath:[".env", "./src/config/.http.env"],
+      isGlobal:true,
+      // ignoreEnvFile:true,
+    }), // 注册使用官方的ConfigModule
     
     //TypeOrmModule.forRoot(
     // {
