@@ -11,6 +11,7 @@ import {BridgeVersionModule} from "./module/bridgeVersion/bv.module"
 import {DBConfigModule} from "./module/config/db.config.module"
 import {DBConfigService} from "./module/config/db.config.service"
 import {ConfigModule} from "@nestjs/config";
+import configuration from "./config/configuration"
 const defaultConfig = {
   type: "mysql",
   host: "localhost",
@@ -27,6 +28,7 @@ const defaultConfig = {
     ConfigModule.forRoot({
       envFilePath:[".env", "./src/config/.http.env"],
       isGlobal:true,
+      load:[configuration],
       // ignoreEnvFile:true,
     }), // 注册使用官方的ConfigModule
     
@@ -61,6 +63,10 @@ const defaultConfig = {
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  onModuleInit(){
+    console.log(`AppModule.onModuleInit :: enter, `)
+  }
+}
 
 

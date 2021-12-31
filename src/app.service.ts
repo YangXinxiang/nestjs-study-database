@@ -17,5 +17,14 @@ export class AppService {
     const domain: string = this.configService.get("DOMAIN")
     const appRoute: string = this.configService.get("APP_PATH")
     console.log(`printEnv :: enter, domain = `, domain, "appRoute = ", appRoute);
+
+    const h2:string = this.configService.get("port2")
+    const db:any = this.configService.get("database2")
+    const d2:string = this.configService.get("database2.port2")
+    console.log(`printEnv :: enter, h2 = `, h2, "db = ", db, "database2.port2 = ", d2);
+  }
+
+  onModuleInit(){
+    console.log(`AppModule.onModuleInit sssss :: enter, `)
   }
 }
