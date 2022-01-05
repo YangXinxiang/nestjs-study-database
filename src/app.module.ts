@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module,ValidationPipe} from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -11,6 +11,7 @@ import {BridgeVersionModule} from "./module/bridgeVersion/bv.module"
 import {DBConfigModule} from "./module/config/db.config.module"
 import {DBConfigService} from "./module/config/db.config.service"
 import {ConfigModule} from "@nestjs/config";
+import {StudentModule} from "./module/student/student.module"
 import configuration from "./config/configuration"
 const defaultConfig = {
   type: "mysql",
@@ -58,6 +59,7 @@ const defaultConfig = {
   UsersModule,
   PhotoModule,
   PhotoHttpModule,
+  StudentModule,
   //BridgeVersionModule
 ],
   controllers: [AppController],
