@@ -13,6 +13,8 @@ import {DBConfigService} from "./module/config/db.config.service"
 import {ConfigModule} from "@nestjs/config";
 import {StudentModule} from "./module/student/student.module"
 import configuration from "./config/configuration"
+import {PhotoBigModule} from "./module/photo-big/photo.big.module"
+import {ArticleMoudle} from "./module/article/article.module"
 const defaultConfig = {
   type: "mysql",
   host: "localhost",
@@ -58,7 +60,9 @@ const defaultConfig = {
   
   UsersModule,
   PhotoModule,
+  PhotoBigModule,
   PhotoHttpModule,
+  ArticleMoudle,
   StudentModule,
   //BridgeVersionModule
 ],
