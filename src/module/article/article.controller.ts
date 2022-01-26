@@ -4,9 +4,11 @@ import {CreateArticleDto,CreateAuthorDto} from "./dto"
 @Controller("article")
 export class ArticleController {
     constructor(private readonly articleService: ArticleService) {}
-    @Get("id")
-    getArticle(@Param("id") id){
+    @Get(":id")
+    async getArticle(@Param("id") id){
         console.log(`getArticle :: enter, id = ${id}`)
+        const rst = await this.articleService.getOneByQB(parseInt(id))
+        return rst;
     }
 
     @Get()

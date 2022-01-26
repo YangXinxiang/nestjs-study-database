@@ -35,4 +35,12 @@ export class ArticleService {
        console.log(`getAll :: end, rst = `, rst)
        return rst
     }
+
+    // 练习使用 queryBuilder
+    async getOneByQB(id:number) {
+        const rst = await this.articleRepository.createQueryBuilder("user")
+            .where("user.id = :id", {id})
+            .getOne()
+        return rst;
+    }
 }
