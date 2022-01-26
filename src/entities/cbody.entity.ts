@@ -9,7 +9,7 @@ export class CBody {
     name:string
 
 
-    @OneToOne((type)=>CLeg, leg=>leg.body)
+    @OneToOne((type)=>CLeg, leg=>leg.body, {cascade: true})
     @JoinColumn()
     leg:CLeg
 }

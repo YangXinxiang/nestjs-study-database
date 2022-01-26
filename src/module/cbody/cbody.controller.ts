@@ -14,7 +14,7 @@ export class CBodyController {
     @Post("sssave")
     async save(@Body("leg") legCreateDto: CLegCreateDto, @Body("body") bodyCreateDto: CBodyCreateDto): Promise<string> {
         console.log(`save :: enter, legCreateDto = `, legCreateDto, "bodyCreateDto = ", bodyCreateDto)
-        const rst = this.cService.save(legCreateDto, bodyCreateDto)
+        const rst = this.cService.save2(legCreateDto, bodyCreateDto)
         return rst;
     }
 }

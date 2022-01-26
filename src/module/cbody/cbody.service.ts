@@ -43,4 +43,20 @@ export class CBodyService {
         // 开始保存
         return `save :: legDto :: ${JSON.stringify(legDto)}, bodyDto :: ${JSON.stringify(bodyDto)}`;
     }
+
+    async  save2(legDto: CLegCreateDto, bodyDto: CBodyCreateDto) {
+        const cbody:CBody = new CBody();
+        cbody.name = bodyDto.name;
+
+        const cleg:CLeg = new CLeg();
+        cleg.name = legDto.name;
+
+        cbody.leg = cleg; // 二者连接起来
+
+        // await this.clegRepository.save(cleg)
+        await this.cbodyRepository.save(cbody)
+
+        // 开始保存
+        return `save2 :: legDto :: ${JSON.stringify(legDto)}, bodyDto :: ${JSON.stringify(bodyDto)}`;
+    }
 }
