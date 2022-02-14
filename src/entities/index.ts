@@ -9,3 +9,9 @@ export {Article} from "./article.entity";
 
 export {CBody} from "./cbody.entity";
 export {CLeg} from "./cleg.entity"
+
+export {Desk} from "./desk.entity";
+export {DLeg} from "./d.leg.entity";
+
+export {Car} from "./car.entity";
+export {CarWheel} from "./carWheel.entity"
