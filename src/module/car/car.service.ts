@@ -15,7 +15,16 @@ export class CarService {
     // constructor(carRepository:Repository<Car>, carWheelRepository:Repository<CarWheel>){}
 
     async getOne(id:number){
-        const rst = await this.carRepository.findOne(id)
+        // 取出一对多的关系数据，
+        const rst = await this.carRepository.findOne({
+            relations:["wheels"], // 用relations来指定关系
+            where:{id}// 限定查询范围
+           
+        })
+        // const rst = await this.carWheelRepository.findOne({
+        //     relations:["car"],
+        //     // where:{id}
+        // })
         return rst;
     }
 

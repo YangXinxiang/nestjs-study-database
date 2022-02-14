@@ -1,15 +1,16 @@
-import {Controller, Get, Post, Param,Body, Inject} from "@nestjs/common";
+import {Controller, Get, Post, Param,Body, Inject, Query} from "@nestjs/common";
 import {CarCreateDto, CarWheelBaseDto} from "./dto"
 import {CarService} from "./car.service"
 @Controller("car")
 export class CarController {
     @Inject(CarService)
     private readonly cs:CarService;
+
+    // 访问： http://localhost:3000/car/2
     @Get(":id")
-    async getOne(id:string){
+    async getOne(@Param("id") id:string){
         console.log("CarController.getOne :: enter, id = ", id)
-        return "getOne~~~~"
-        
+        return this.cs.getOne(parseInt(id))
     }
 
     @Post("add")
