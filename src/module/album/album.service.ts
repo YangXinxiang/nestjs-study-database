@@ -12,8 +12,14 @@ export class AlbumService{
     @InjectRepository(Picture)
     pictureRepository:Repository<Picture>;
 
-    async getOne( id: number){
-        return "AlbumService.getOne :: " + id 
+    async getAlbumById( id: number){
+        const rst = this.albumRepository.findOne(id, {relations:["pictures"]})
+        return rst 
+    }
+
+    async getPictureById(id:number) {
+        const rst = this.pictureRepository.findOne(id, {relations:["albums"]})
+        return rst 
     }
     
     async create(albumInfo: AlbumCreateDto,  picInfoes:PictureCreateDto[]){
