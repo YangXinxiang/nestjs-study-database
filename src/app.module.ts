@@ -17,6 +17,7 @@ import {PhotoBigModule} from "./module/photo-big/photo.big.module"
 import {ArticleMoudle} from "./module/article/article.module"
 import {CBodyModule} from "./module/cbody/cbody.module"
 import {CarModule} from "./module/car/car.module"
+import {AlbumModule} from "./module/album/album.module"
 const defaultConfig = {
   type: "mysql",
   host: "localhost",
@@ -69,6 +70,7 @@ const defaultConfig = {
   CBodyModule,
   //BridgeVersionModule
   CarModule,
+  AlbumModule,
 ],
   controllers: [AppController],
   providers: [AppService],

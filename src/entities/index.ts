@@ -15,3 +15,6 @@ export {DLeg} from "./d.leg.entity";
 
 export {Car} from "./car.entity";
 export {CarWheel} from "./carWheel.entity"
+
+export {Album} from "./album.entity"
+export {Picture} from "./picture.entity"
